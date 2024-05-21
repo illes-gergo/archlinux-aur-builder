@@ -1,0 +1,10 @@
+services:
+  archlinux:
+    container_name: arch-builder
+    image: local/archlinux-custom
+    build:
+      context: .
+    working_dir: /aur
+    volumes:
+      - ./aur:/aur
+    command: sh -c "pacman -Syu && runuser -ubuilder -- makepkg -sCf --noconfirm"
