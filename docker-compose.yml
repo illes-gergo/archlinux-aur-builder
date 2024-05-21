@@ -6,5 +6,6 @@ services:
       context: .
     working_dir: /aur
     volumes:
-      - ./aur:/aur
-    command: sh -c "pacman -Syu && runuser -ubuilder -- makepkg -sCf --noconfirm"
+      - ./doom:/aur
+    command: sh -c "pacman -Syyu && runuser -ubuilder -- ./doom.sh"
+    #command: sh -c "cat /etc/makepkg.conf"
